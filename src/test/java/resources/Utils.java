@@ -28,7 +28,7 @@ import io.restassured.specification.ResponseSpecification;
 public class Utils {
 	
 	
-	public String globalProertiesPath = System.getProperty("user.dir")+"/src/test/java/resources/global.properties";
+	public String globalProertiesPath;
 
 	public static int userId = 0;
 	JSONArray responseArray;
@@ -41,6 +41,8 @@ public class Utils {
 
 	protected String getGlobalValue(String key) throws IOException {
 		
+		setPropFilePath();
+		
 		Properties prop =new Properties();
 		FileInputStream fis =new FileInputStream(globalProertiesPath);
 		prop.load(fis);
@@ -48,6 +50,16 @@ public class Utils {
 		
 	}
 	
+	private void setPropFilePath() {
+		
+		if(System.getProperty("os.name").contains("Windows"))
+			globalProertiesPath = System.getProperty("user.dir")+"\\src\\test\\java\\resources\\global.properties";
+		else {
+			globalProertiesPath = System.getProperty("user.dir")+"/src/test/java/resources/global.properties";
+		}
+		
+	}
+
 	private JSONArray getJsonArray(Response response) {
 
 		String responseString = response.asString();
