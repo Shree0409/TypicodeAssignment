@@ -28,7 +28,7 @@ import io.restassured.specification.ResponseSpecification;
 public class Utils {
 	
 	
-	public String globalProertiesPath = System.getProperty("user.dir")+"\\src\\test\\java\\resources\\global.properties";
+	public String globalProertiesPath = System.getProperty("user.dir")+"/src/test/java/resources/global.properties";
 
 	public static int userId = 0;
 	JSONArray responseArray;
