@@ -1,5 +1,0 @@
-cucumber\options\TestRunner.class
-stepdefinitions\StepDefinitions.class
-resources\APIResources.class
-resources\Utils.class
-typicode\apiautomation\AppTest.class
